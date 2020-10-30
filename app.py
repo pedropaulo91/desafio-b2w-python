@@ -1,7 +1,7 @@
 from bottle import get, post, delete, request, response, run
 from model.dao.planeta_dao import PlanetaDAO
 
-@post('/planetas')
+@post('/api/planetas')
 def adicionarPlaneta():
     dao = PlanetaDAO()
     planeta = (request.json.get('nome'), request.json.get('clima'), request.json.get('terreno'))
@@ -15,15 +15,15 @@ def adicionarPlaneta():
         return {'mensagem':'Erro ao adicionar planeta'}
 
 
-@get('/')
-@get('/planetas')
+
+@get('/api/planetas')
 def listarPlanetas():
     dao = PlanetaDAO()
     planetas = dao.listarPlanetas()
     return planetas
 
 
-@get('/planetas/<nome>')
+@get('/api/planetas/nome/<nome>')
 def buscarPorNome(nome):
     dao = PlanetaDAO()
     planeta = dao.buscarPorNome(nome)
@@ -35,7 +35,7 @@ def buscarPorNome(nome):
         return {'mensagem':'Planeta nao encontrado'}
 
 
-@get('/planetas/id/<id>')
+@get('/api/planetas/id/<id>')
 def buscarPorId(id):
     dao = PlanetaDAO()
     planeta = dao.buscarPorId(id)
@@ -47,7 +47,7 @@ def buscarPorId(id):
         return {'mensagem':'Planeta nao encontrado'}
 
 
-@delete('/planetas/<id>')
+@delete('/api/planetas/<id>')
 def removerPlaneta(id):
     dao = PlanetaDAO()
     result = dao.removerPlaneta(id)
@@ -61,5 +61,5 @@ def removerPlaneta(id):
 
 
 if __name__ == '__main__':
-    run(host='127.0.0.1', port=8000)
+    run(host='localhost', port=8000)
 
