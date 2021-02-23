@@ -9,7 +9,7 @@ from model.dao.planeta_dao import PlanetaDAO
 planetas = []
 
 def getQtdPlanetas():
-    response = requests.get('https://swapi.co/api/planets')
+    response = requests.get('https://swapi.dev/api/planets')
     content = json.loads(response.content)
     qtdPlanetas = int(content['count'])
     return qtdPlanetas
@@ -18,7 +18,7 @@ def getQtdPlanetas():
 def main():
     for i in range(1, getQtdPlanetas()+1):
 
-        response = requests.get('https://swapi.co/api/planets/{}'.format(i))
+        response = requests.get('https://swapi.dev/api/planets/{}'.format(i))
         dictPlaneta = json.loads(response.content)
 
         planeta = Planeta()
