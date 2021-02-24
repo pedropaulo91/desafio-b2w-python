@@ -2,7 +2,9 @@
 Módulo para obter os planetas da API
 e inserir no banco de dados.
 """
-import requests, json
+import requests
+import json
+
 from model.planeta import Planeta
 from model.dao.planeta_dao import PlanetaDAO
 
