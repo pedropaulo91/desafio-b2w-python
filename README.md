@@ -1,3 +1,4 @@
+![GitHub](https://img.shields.io/github/license/pedropaulo91/desafio-b2w-python)
 # Desafio-B2W
 
 ## Uma API REST proposta como desafio para o processo seletivo.
